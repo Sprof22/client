@@ -3,7 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const calculateOrderAmount = async (items: any) => {
   // Instead of returning a fixed value, get the price details from Stripe and calculate the order amount
   try {
-    const priceId = "price_1NaEybDEQmgYkM8JUZTYnunz"; // Replace this with the actual price ID from Stripe
+    const priceId = "price_1NY6L8DEQmgYkM8JIrgKJlYR"; // Replace this with the actual price ID from Stripe
     const price = await stripe.prices.retrieve(priceId);
 
     if (!price) {

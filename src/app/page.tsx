@@ -1,173 +1,29 @@
 "use client";
+import Navbar from "@/components/Navbar";
 import React from "react";
-import { useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { useSearchParams } from "next/navigation";
-import Image from "next/image";
+import { getProductData, productsArray } from "../components/products";
+import Productcard from "@/components/Productcard";
 
-const stripePublishableKey =
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
-loadStripe(stripePublishableKey);
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  photo: string;
+  // Add other properties if required
+}
 
 const HomePage = () => {
-  const searchParams = useSearchParams();
-  const success = searchParams?.get("success");
-  const canceled = searchParams?.get("canceled");
-
-  useEffect(() => {
-    if (success !== undefined || canceled !== undefined) {
-      if (success) {
-        console.log("Order placed! You will receive an email confirmation.");
-      }
-
-      if (canceled) {
-        console.log(
-          "Order canceled -- continue to shop around and checkout when you’re ready."
-        );
-      }
-    }
-  }, [success, canceled]);
-
+  
   return (
-    <div className="flex justify-between">
-      <div>
-        <h1>Checkout</h1>
-        <form action="/api/checkout_sessions" method="POST">
-          <section>
-            <div>
-              <Image
-                className="image"
-                src="https://stripe-camo.global.ssl.fastly.net/b18fe038498c9b166931cf20037616601b9ba31c04a59e18278763776895d0c5/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878536c564554306445525646745a316c725454684b66475a735833526c6333526656306c775757746d5a4735544d6e52796454645853335a585255747a596a564930304c393934647a3174"
-                alt="Green Soap"
-                width={150}
-                height={150}
-              />
-              <div className="description">
-                <h3 className="heading">Green Soap</h3>
-                <h5 className="price">$34.99</h5>
-              </div>
-            </div>
-            <button type="submit" role="link">
-              Checkout
-            </button>
-          </section>
-          <style jsx>
-            {`
-              .description {
-                float: right;
-                margin-left: 10px;
-              }
-              .image {
-                float: left;
-              }
-              .heading {
-                font-size: 28px;
-                font-weight: 200;
-              }
-              .price {
-                font-size: 18px;
-                font-weight: bold;
-              }
-              section {
-                background: #ffffff;
-                display: flex;
-                flex-direction: column;
-                width: 450px;
-                height: 112px;
-                border-radius: 6px;
-                justify-content: space-between;
-              }
-              button {
-                height: 45px;
-                padding: 10px;
-                background: #556cd6;
-                border-radius: 4px;
-                color: white;
-                border: 0;
-                font-size: 18px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.2s ease;
-                box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-              }
-              button:hover {
-                opacity: 0.8;
-              }
-            `}
-          </style>
-        </form>
-      </div>
-      <div>
-        <h1>Subscription</h1>
-        <form action="/api/subscription" method="POST">
-          <section>
-            <div>
-              <Image
-                className="image"
-                src="https://media.istockphoto.com/id/1218311009/photo/cleaning-home-table-sanitizing-kitchen-table-surface-with-disinfectant-spray-bottle-washing.jpg?s=612x612&w=0&k=20&c=YapPnm46_HOv_RovnhL5k7-PkYIymdlsGruB4Cy4FUU="
-                alt="Cleaning Service"
-                width={150}
-                height={150}
-              />
-              <div className="description mt-8">
-                <h3 className="heading">Cleaning Service</h3>
-                <h5 className="price">349.99/month</h5>
-              </div>
-            </div>
-            <input
-              type="hidden"
-              name="lookup_key"
-              value="price_1NY6L8DEQmgYkM8JIrgKJlYR"
-            />
-            <button type="submit" role="link">
-              Subscribe
-            </button>
-          </section>
-          <style jsx>
-            {`
-              .description {
-                float: right;
-                margin-left: 10px;
-              }
-              .image {
-                float: left;
-              }
-              .heading {
-                font-size: 28px;
-                font-weight: 200;
-              }
-              .price {
-                font-size: 18px;
-                font-weight: bold;
-              }
-              section {
-                background: #ffffff;
-                display: flex;
-                flex-direction: column;
-                width: 450px;
-                height: 112px;
-                border-radius: 6px;
-                justify-content: space-between;
-              }
-              button {
-                height: 45px;
-                padding: 10px;
-                background: #556cd6;
-                border-radius: 4px;
-                color: white;
-                border: 0;
-                font-size: 18px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.2s ease;
-                box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-              }
-              button:hover {
-                opacity: 0.8;
-              }
-            `}
-          </style>
-        </form>
+    <div>
+      <Navbar />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+        {/* Map through the products and create product cards */}
+        {productsArray.map((product, idx) => (
+          <div key={idx}>
+            <Productcard product={product}/>
+          </div>
+        ))}
       </div>
     </div>
   );

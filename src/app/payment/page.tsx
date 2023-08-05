@@ -32,7 +32,7 @@ export default function App() {
   const appearance = {
     theme: 'flat',
   };
-  const options = {
+  const options = { 
     clientSecret
   };
 
