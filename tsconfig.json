@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CheckoutForm.jsx", "CartContext.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CheckoutForm.jsx", "CartContext.tsx", "pages/api/validator.js", "pages/api/validator.js", "pages/api/validator.js"],
   "exclude": ["node_modules"]
 }
