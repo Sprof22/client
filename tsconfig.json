@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CheckoutForm.jsx", "CartContext.tsx", "pages/api/validator.js", "pages/api/validator.js", "pages/api/validator.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CheckoutForm.jsx", "CartContext.tsx", "pages/api/validator.js", "pages/api/validator.js", "pages/api/validator.js", "src/utils/validator.js", "src/utils/useOneSignal.js", "src/utils/validator.js"],
   "exclude": ["node_modules"]
 }
