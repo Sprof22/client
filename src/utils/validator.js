@@ -1,4 +1,5 @@
-import Validator from 'validatorjs';
+const Validator = require('validatorjs')
+
 
 let data = {
   name: 'John',
