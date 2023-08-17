@@ -27,7 +27,10 @@
     "express": "^4.18.2",
     "feather-icons-react": "^0.6.2",
     "ioredis": "^5.3.2",
+    "js-cookie": "^3.0.5",
     "next": "^13.4.12",
+    "next-auth": "^4.23.1",
+    "nookies": "^2.5.2",
     "pg": "^8.11.2",
     "postcss": "8.4.27",
     "react": "18.2.0",
@@ -41,9 +44,12 @@
     "validatorjs": "^3.22.1"
   },
   "devDependencies": {
+    "@types/cookie": "^0.5.1",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/faker": "^6.6.9",
+    "@types/js-cookie": "^3.0.3",
+    "@types/next-auth": "^3.15.0",
     "@types/pg": "^8.10.2",
     "@types/react-instantsearch-dom": "^6.12.3"
   }

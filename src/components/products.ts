@@ -39,7 +39,7 @@ const productsArray = [
   {
       id: "price_1NaEybDEQmgYkM8JUZTYnunz",
       title: "Product A",
-      price: 4.99
+      price: 23.49
   },
   {
       id: "price_1NXnGHDEQmgYkM8JExm0hROG",

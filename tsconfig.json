@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CheckoutForm.jsx", "CartContext.tsx", "pages/api/validator.js", "pages/api/validator.js", "pages/api/validator.js", "src/utils/validator.js", "src/utils/useOneSignal.js", "src/utils/validator.js", "src/utils/fakeData.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CheckoutForm.jsx", "CartContext.tsx", "pages/api/validator.js", "pages/api/validator.js", "pages/api/validator.js", "src/utils/validator.js", "src/utils/useOneSignal.js", "src/utils/validator.js", "src/utils/fakeData.js", "pages/api/auth/[...nextauth].js", "pages/api/check-subscription.js"],
   "exclude": ["node_modules"]
 }

@@ -53,6 +53,12 @@ export default function CheckoutForm() {
     }
   }, [clientSecret, stripe]);
 
+  useEffect(() => {
+    fetch("/api/create-sub-intent")
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -95,7 +101,13 @@ export default function CheckoutForm() {
   return (
     <div className="min-h-screen flex items-center justify-center">
     <div className="w-1/2 bg-white p-8 flex">
+      <div>
       <h1 className="text-2xl font-bold mb-4 text-blue-800">Enter details to complete subscription</h1>
+      <div>
+        an image should be here
+        <p>The price  of this item should also be here</p>
+      </div>
+      </div>
       <form id="payment-form" onSubmit={handleSubmit}>
         <LinkAuthenticationElement
           id="link-authentication-element"
